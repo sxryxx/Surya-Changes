@@ -1,30 +1,29 @@
-# 🕉️ Ujjain360 - Digital Pilgrimage Platform
+# 🏛️ Ujjain360 Admin Dashboard
 
-![Ujjain360 Banner]
 
-A comprehensive digital platform for the **Ujjain Simhastha** pilgrimage festival, featuring real-time navigation, AI-powered assistance, multilingual support, and admin management capabilities.
 
-## 🌟 Features
+**Real-time admin dashboard for managing the Ujjain360 pilgrimage platform**
 
-- **🗺️ Real-time Navigation** - Interactive maps with crowd monitoring and AI-optimized routes
-- **🤖 AI Chatbot** - Multilingual assistant powered by Google Gemini AI
-- **📱 Mobile-First Design** - Responsive interface for all devices
-- **🌍 Multilingual Support** - English, Hindi, and Tamil translations
-- **🚨 Emergency Services** - SOS functionality and incident reporting
-- **📊 Admin Dashboard** - Real-time analytics and report management
-- **🎫 Booking System** - Transport and accommodation reservations
-- **🎨 Modern UI/UX** - Clean, intuitive interface with dark mode support
+A comprehensive admin control panel for monitoring crowd levels, managing incidents, analyzing performance metrics, and overseeing the entire Ujjain Simhastha digital ecosystem.
+
+## 🌟 Admin Features
+
+- **📊 Real-time Analytics** - Live crowd metrics and performance dashboards
+- **🚨 Incident Management** - Track, assign, and resolve user reports
+- **👥 Crowd Monitoring** - Area-wise capacity management and alerts
+- **📈 Performance Metrics** - System efficiency and response time tracking
+- **🔔 Alert Broadcasting** - Emergency notifications and announcements
+- **📱 Responsive Design** - Works on desktop, tablet, and mobile devices
+- **🌙 Dark Mode Support** - Professional interface with theme options
 
 ## 🛠️ Technology Stack
 
 - **Frontend**: React 19.1.1 + TypeScript 5.8.2
-- **Build Tool**: Vite 6.3.6
+- **Build Tool**: Vite 6.2.0
 - **Styling**: Tailwind CSS
-- **Maps**: React Leaflet 5.0.0
-- **AI**: Google Gemini AI 1.17.0
-- **Charts**: Recharts 3.2.0
+- **Charts**: Recharts 3.1.2
 - **Animations**: Framer Motion 12.23.12
-- **Icons**: Lucide React 0.542.0
+- **Icons**: Custom stroke icons and Lucide React
 
 ## 🚀 Quick Start
 
@@ -33,7 +32,6 @@ A comprehensive digital platform for the **Ujjain Simhastha** pilgrimage festiva
 Make sure you have the following installed:
 - **Node.js** (v18.0.0 or higher)
 - **npm** (v8.0.0 or higher) or **yarn**
-- **Git** for version control
 
 ### Installation & Setup
 
@@ -45,10 +43,10 @@ Make sure you have the following installed:
    - Select **"Download ZIP"**
    - Extract the ZIP file to your desired location
 
-2. **Navigate to Project Directory**
+2. **Navigate to Admin Directory**
    ```bash
-   # Open terminal/command prompt and navigate to the extracted folder
-   cd path/to/extracted/ujain-folder
+   # Open terminal/command prompt and navigate to the admin folder
+   cd path/to/extracted/ujain-folder/admin
    ```
 
 3. **Install Dependencies**
@@ -58,143 +56,117 @@ Make sure you have the following installed:
 
 4. **Environment Configuration (Optional)**
    
-   Create a `.env.local` file in the root directory:
+   Create a `.env.local` file in the admin directory:
    ```bash
-   # Google Gemini AI API Key (Optional - Demo mode works without it)
-   VITE_GEMINI_API_KEY=your_gemini_api_key_here
-   
-   # Development Configuration
+   # Admin Configuration
    VITE_APP_MODE=development
-   VITE_API_BASE_URL=http://localhost:3000
+   VITE_API_BASE_URL=http://localhost:3001
+   VITE_ADMIN_SECRET=your_admin_secret_key
    ```
 
-   **Note**: The app works in demo mode without the Gemini API key. To get a free API key:
-   - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-   - Create an account and generate an API key
-   - Add it to your `.env.local` file
-
-5. **Start Development Server**
+5. **Start Admin Dashboard**
    ```bash
    npm run dev
    ```
 
-6. **Open in Browser**
+6. **Open Admin Panel**
    
-   The app will be available at:
+   The admin dashboard will be available at:
    ```
-   http://localhost:5173/
+   http://localhost:5174/
    ```
-   (Port may vary if 5173 is in use - check terminal output)
+   (Port may vary if 5174 is in use - check terminal output)
 
 #### Option 2: Using Git Clone
 
 1. **Clone the Repository**
    ```bash
    git clone <repository-url>
-   cd ujain
+   cd ujain/admin
    ```
 
 2. **Follow steps 3-6 from Option 1 above**
 
-### Troubleshooting Common Issues
+### Running Both User App and Admin Dashboard
 
-**Issue: `npm install` fails**
-```bash
-# Clear npm cache and try again
-npm cache clean --force
-npm install
-```
+To run the complete system:
 
-**Issue: Port already in use**
-```bash
-# The app will automatically find an available port
-# Check terminal output for the correct URL
-```
+1. **Terminal 1 - User App**
+   ```bash
+   cd ujain
+   npm install
+   npm run dev
+   # Runs on http://localhost:5173/
+   ```
 
-**Issue: Permission denied on Windows**
-```bash
-# Run command prompt as Administrator
-# Or use PowerShell with execution policy
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
+2. **Terminal 2 - Admin Dashboard**
+   ```bash
+   cd ujain/admin
+   npm install
+   npm run dev
+   # Runs on http://localhost:5174/
+   ```
 
-## 🏗️ Project Structure
+## 🏗️ Admin Dashboard Structure
 
 ```
-ujain/
-├── 📁 components/          # Reusable UI components
-│   ├── BottomNav.tsx      # Mobile navigation
-│   ├── ChatModal.tsx      # AI chatbot interface
-│   ├── Header.tsx         # App header
-│   ├── Sidebar.tsx        # Desktop navigation
-│   └── ...
-├── 📁 pages/              # Application pages
-│   ├── HomePage.tsx       # Main dashboard
-│   ├── NavigationPage.tsx # Maps & navigation
-│   ├── BookingPage.tsx    # Booking system
-│   ├── EmergencyPage.tsx  # Emergency services
-│   ├── ReportPage.tsx     # Incident reporting
-│   └── ...
-├── 📁 services/           # Backend services
-│   ├── aiService.ts       # AI chatbot logic
-│   ├── adminDataService.ts # Admin data management
-│   └── geminiClient.ts    # Google AI integration
-├── 📁 hooks/              # Custom React hooks
-├── 📁 admin/              # Admin dashboard (separate app)
-├── App.tsx                # Main application component
-├── i18n.ts               # Internationalization
-├── constants.ts          # App configuration
+admin/
+├── 📁 components/          # Admin UI components
+│   ├── Navbar.tsx         # Admin navigation
+│   ├── DashboardCard.tsx  # Metric cards
+│   ├── KpiCard.tsx        # KPI displays
+│   ├── Sidebar.tsx        # Admin sidebar
+│   └── charts/            # Chart components
+│       ├── BarChartComponent.tsx
+│       ├── LineChartComponent.tsx
+│       └── PieChartComponent.tsx
+├── 📁 pages/              # Admin pages
+│   ├── AnalyticsDashboard.tsx  # Main analytics
+│   ├── CrowdMonitoring.tsx     # Crowd management
+│   ├── IncidentManagement.tsx  # Report handling
+│   ├── ReportManagement.tsx    # Report analytics
+│   ├── BookingOverview.tsx     # Booking stats
+│   └── AlertBroadcasting.tsx   # Alert system
+├── App.tsx                # Main admin app
+├── constants.tsx          # Admin configuration
 └── types.ts              # TypeScript definitions
 ```
 
-## 🌐 Admin Dashboard
+## 🎮 Admin Usage Guide
 
-The project includes a separate admin dashboard for managing the platform:
+### Dashboard Overview
+1. **Analytics Dashboard** - View real-time system performance
+2. **Crowd Monitoring** - Monitor area capacity and crowd levels
+3. **Incident Management** - Handle user reports and emergencies
+4. **Report Management** - Analyze trends and generate insights
+5. **Booking Overview** - Track reservations and availability
+6. **Alert Broadcasting** - Send emergency notifications
 
-### Running the Admin Dashboard
+### Key Admin Functions
 
-1. **Navigate to Admin Directory**
-   ```bash
-   cd admin
-   ```
+**Real-time Monitoring:**
+```
+- Live crowd count tracking
+- Incident status updates
+- Response time metrics
+- Area capacity management
+```
 
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
+**Report Management:**
+```
+- Assign incidents to team members
+- Update report status
+- Add resolution notes
+- Track response times
+```
 
-3. **Start Admin Server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Access Admin Panel**
-   ```
-   http://localhost:5174/
-   ```
-
-### Admin Features
-- **Real-time Analytics** - Live crowd metrics and incident tracking
-- **Report Management** - Handle user reports and incidents
-- **Crowd Monitoring** - Area-wise capacity management
-- **Alert Broadcasting** - Emergency notifications
-- **Performance Metrics** - System efficiency tracking
-
-## 🎮 Usage Guide
-
-### For Users
-1. **Navigation**: Use the interactive map to find routes to temples and amenities
-2. **Booking**: Reserve transport and accommodation through the booking system
-3. **Emergency**: Access SOS services and report incidents
-4. **Language**: Switch between English, Hindi, and Tamil
-5. **AI Assistant**: Use the floating chat button for help and guidance
-
-### For Administrators
-1. **Login**: Access the admin dashboard with admin credentials
-2. **Monitor**: Track real-time crowd levels and incidents
-3. **Respond**: Manage and resolve user reports
-4. **Analyze**: View performance metrics and trends
-5. **Alert**: Broadcast emergency notifications
+**Analytics & Insights:**
+```
+- Performance trend analysis
+- Area-wise incident reports
+- User satisfaction metrics
+- System efficiency tracking
+```
 
 ## 🔧 Development Commands
 
@@ -213,129 +185,79 @@ npm run preview
 
 # Type checking
 npx tsc --noEmit
-
-# Format code
-npx prettier --write .
 ```
 
-## 📝 Git Workflow
+## 🔒 Admin Security Features
 
-### Committing Changes
+- **Role-based access control** for different admin levels
+- **Secure authentication** for admin panel access
+- **Input validation** on all admin forms
+- **Audit logging** for admin actions
+- **Session management** with timeout protection
 
+## 🌍 Admin Responsive Design
+
+- **Desktop-first** approach for comprehensive admin tools
+- **Tablet support** with touch-optimized controls
+- **Mobile admin** for emergency management on-the-go
+- **Progressive enhancement** for feature-rich admin experience
+
+## 📊 Data Integration
+
+The admin dashboard integrates with:
+- **User App Data** - Real-time report submissions
+- **Analytics Service** - Performance metrics and trends
+- **Notification System** - Alert broadcasting capabilities
+- **Booking System** - Reservation and availability data
+
+## 🚨 Troubleshooting Admin Issues
+
+**Issue: Admin dashboard not loading**
 ```bash
-# Check current status
-git status
+# Check if user app is running first
+cd ../
+npm run dev
 
-# Add all changes
-git add .
-
-# Commit with descriptive message
-git commit -m "feat: add Tamil language support and admin integration"
-
-# Push to repository
-git push origin main
+# Then start admin in new terminal
+cd admin
+npm run dev
 ```
 
-### Common Commit Types
-
+**Issue: Data not updating**
 ```bash
-# New features
-git commit -m "feat: add multilingual chatbot support"
-
-# Bug fixes
-git commit -m "fix: resolve sidebar scrolling issue"
-
-# Documentation updates
-git commit -m "docs: update README with setup instructions"
-
-# Style/UI improvements
-git commit -m "style: improve responsive design for mobile"
-
-# Refactoring code
-git commit -m "refactor: optimize admin data service"
-
-# Performance improvements
-git commit -m "perf: optimize React component rendering"
+# Restart both applications
+# User app provides data to admin dashboard
 ```
 
-### Branch Management
-
+**Issue: Port conflicts**
 ```bash
-# Create new feature branch
-git checkout -b feature/new-feature-name
-
-# Switch between branches
-git checkout main
-git checkout feature/new-feature-name
-
-# Merge feature branch
-git checkout main
-git merge feature/new-feature-name
-
-# Delete completed feature branch
-git branch -d feature/new-feature-name
+# Admin automatically finds available ports
+# Check terminal output for correct URLs
 ```
 
-## 🌍 Multilingual Support
-
-The app supports three languages with complete translations:
-
-- **English** - Default language
-- **हिंदी (Hindi)** - Complete localization
-- **தமிழ் (Tamil)** - Full translation support
-
-Language switching is available in the sidebar and updates all UI elements in real-time.
-
-## 📱 Responsive Design
-
-- **Mobile-first** approach with touch-optimized controls
-- **Tablet** support with adaptive layouts
-- **Desktop** experience with sidebar navigation
-- **PWA-ready** for mobile app-like experience
-
-## 🔒 Security Features
-
-- **Input validation** on all forms
-- **XSS protection** with proper sanitization
-- **CSRF protection** for admin actions
-- **Rate limiting** on API endpoints
-- **Secure headers** configuration
-
-## 🎨 Team
+## 🎨 Admin Team
 
 - **Project Lead**: Sithick Sahil Ahamed
 - **UX/UI Designer**: Parthiban
 - **UX/UI Designer**: Surya Prassanna
 - **Lead Developer**: Prasanna
 
-## 📄 License
+## 📞 Admin Support
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+For admin-specific support:
+- Check the main project documentation
+- Review admin component documentation
+- Contact the development team for access issues
 
-## 🤝 Contributing
+## 🔗 Related Links
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-For support and questions:
-- Create an issue in the repository
-- Contact the development team
-- Check the documentation
-
-## 🔗 Links
-
-- **Live Demo**: [Ujjain360 Demo](https://your-demo-url.com)
-- **Admin Panel**: [Admin Dashboard](https://your-admin-url.com)
-- **API Documentation**: [API Docs](https://your-api-docs.com)
+- **Main User App**: `http://localhost:5173/`
+- **Admin Dashboard**: `http://localhost:5174/`
+- **Main Project README**: `../README.md`
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ for the Ujjain Simhastha</p>
-  <p>🕉️ Har Har Mahadev 🕉️</p>
+  <p>🏛️ Administrative Control for Ujjain360</p>
+  <p>🕉️ Managing the Digital Pilgrimage Experience 🕉️</p>
 </div>

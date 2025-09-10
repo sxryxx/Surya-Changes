@@ -1,5 +1,5 @@
 {
-  "name": "ujjain360",
+  "name": "admin-dashboard-ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,13 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@google/genai": "^1.17.0",
-    "framer-motion": "^12.23.12",
-    "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-leaflet": "^5.0.0",
-    "recharts": "^3.2.0"
+    "framer-motion": "^12.23.12",
+    "recharts": "^3.1.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
